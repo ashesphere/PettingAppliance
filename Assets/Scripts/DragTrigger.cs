@@ -12,8 +12,17 @@ public class DragTrigger : BasicTrigger
     Vector3 originalPosition;
     AreaTrigger area;
 
+    bool isBanned { get => !enabled; }
     public Rigidbody rgbody { get => GetComponent<Rigidbody>(); }
     public bool BackToOrigin { get => backToOrigin; set => backToOrigin = value; }
+    Vector3 position 
+    { 
+        get => transform.position ; 
+        set {
+            if (rgbody) rgbody.MovePosition(value);
+            else transform.position = value;
+        }
+    }
 
     void Start()
     {
@@ -27,7 +36,7 @@ public class DragTrigger : BasicTrigger
         var camera = Camera.main;
         var ray = camera.ScreenPointToRay(Input.mousePosition);
 
-        startDistance = Vector3.Distance(transform.position, ray.origin);
+        startDistance = Vector3.Distance(position, ray.origin);
         if (rgbody) rgbody.isKinematic = true;
     }
 
@@ -37,7 +46,7 @@ public class DragTrigger : BasicTrigger
 
         var camera = Camera.main;
         var ray = camera.ScreenPointToRay(Input.mousePosition);
-        transform.position = ray.GetPoint(startDistance);
+        position = ray.GetPoint(startDistance);
         
         if (changeCursor)
             CursorController.current.SetCursor(CursorType.Drag2);

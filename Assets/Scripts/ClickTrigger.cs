@@ -9,6 +9,13 @@ public class ClickTrigger : MonoBehaviour
     public bool changeCursor = true;
     public UnityEvent action;
 
+    bool isBanned { get => !enabled; }
+
+    void Start()
+    {
+        
+    }
+
     void OnMouseDown()
     {
         if (!enabled) return;
@@ -18,12 +25,14 @@ public class ClickTrigger : MonoBehaviour
 
     void OnMouseEnter()
     {
+        if (!enabled) return;
         if (changeCursor && CursorController.current)
             CursorController.current.SetCursor(CursorType.Click2);
     }
 
     void OnMouseExit()
     {
+        if (!enabled) return;
         if (changeCursor && CursorController.current)
             CursorController.current.SetCursor(CursorType.None);
     }

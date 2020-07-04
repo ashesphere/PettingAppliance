@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class BasicTrigger : MonoBehaviour
 {
-    public static bool isBanned;
+    public static bool _isBanned;
 }

@@ -38,6 +38,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AreaTrigger.cs" />
      <Compile Include="Assets\Scripts\BasicTrigger.cs" />
+     <Compile Include="Assets\Scripts\Bubble.cs" />
      <Compile Include="Assets\Scripts\CameraMover.cs" />
      <Compile Include="Assets\Scripts\CameraScrollViewTrigger.cs" />
      <Compile Include="Assets\Scripts\CameraViewTrigger.cs" />
@@ -49,6 +50,7 @@
      <Compile Include="Assets\Scripts\MouseCursorSetting.cs" />
      <Compile Include="Assets\Scripts\PlayerCamera.cs" />
      <Compile Include="Assets\Scripts\RigidBodyController.cs" />
+     <Compile Include="Assets\Scripts\ScrollTrigger.cs" />
      <Compile Include="Assets\Scripts\SingleTon.cs" />
      <Compile Include="Assets\Scripts\SoundFx.cs" />
      <Compile Include="Assets\Scripts\SoundManager.cs" />
@@ -614,6 +616,12 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
         <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Formats.Alembic.Runtime">
+        <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/Unity.Formats.Alembic.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Formats.Alembic.Editor">
+        <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/Unity.Formats.Alembic.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
