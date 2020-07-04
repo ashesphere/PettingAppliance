@@ -47,6 +47,13 @@
      <Compile Include="Assets\Scripts\CursorController.cs" />
      <Compile Include="Assets\Scripts\DragTrigger.cs" />
      <Compile Include="Assets\Scripts\Initialize.cs" />
+     <Compile Include="Assets\Scripts\MiniGame\BounceWall.cs" />
+     <Compile Include="Assets\Scripts\MiniGame\CatBoard.cs" />
+     <Compile Include="Assets\Scripts\MiniGame\DeadZone.cs" />
+     <Compile Include="Assets\Scripts\MiniGame\MiniCat.cs" />
+     <Compile Include="Assets\Scripts\MiniGame\MiniGameCatChaseMouse.cs" />
+     <Compile Include="Assets\Scripts\MiniGame\MiniMouse.cs" />
+     <Compile Include="Assets\Scripts\MiniGame\MouseHolePatch.cs" />
      <Compile Include="Assets\Scripts\MouseCursorSetting.cs" />
      <Compile Include="Assets\Scripts\PlayerCamera.cs" />
      <Compile Include="Assets\Scripts\RigidBodyController.cs" />
@@ -596,6 +603,9 @@
     <Reference Include="Unity.VSCode.Editor">
         <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Formats.Alembic.Runtime">
+        <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/Unity.Formats.Alembic.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
         <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -611,17 +621,14 @@
     <Reference Include="Unity.VisualStudio.Editor">
         <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Formats.Alembic.Editor">
+        <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/Unity.Formats.Alembic.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro">
         <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
         <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Formats.Alembic.Runtime">
-        <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/Unity.Formats.Alembic.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Formats.Alembic.Editor">
-        <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/Unity.Formats.Alembic.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
