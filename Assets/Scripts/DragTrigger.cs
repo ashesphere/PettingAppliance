@@ -11,6 +11,7 @@ public class DragTrigger : BasicTrigger
     float startDistance;
     Vector3 originalPosition;
     AreaTrigger area;
+    bool isKinimatic;
 
     bool isBanned { get => !enabled; }
     public Rigidbody rgbody { get => GetComponent<Rigidbody>(); }
@@ -27,6 +28,7 @@ public class DragTrigger : BasicTrigger
     void Start()
     {
         originalPosition = transform.localPosition;
+        isKinimatic = rgbody.isKinematic;
     }
 
     void OnMouseDown()
@@ -57,7 +59,7 @@ public class DragTrigger : BasicTrigger
         if (isBanned) return;
 
         if (rgbody)
-            rgbody.isKinematic = false;
+            rgbody.isKinematic = isKinimatic;
         if (area)
         {
             if (area.isTargetInArea && area.target == GetComponent<Collider>() && area.onTargetDrop != null)
