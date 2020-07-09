@@ -8,7 +8,7 @@ public class CameraScrollViewTrigger : MonoBehaviour
 
     public bool autoClose = true;
     public bool changeCursor = true;
-    [Range(0.1f,2)]public float sensitive = 0.5f;
+    [Range(0.1f,10f)]public float sensitive = 5f;
     public Transform target;
     public UnityEvent onCloseToTarget;
 
