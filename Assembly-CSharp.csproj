@@ -46,6 +46,7 @@
      <Compile Include="Assets\Scripts\ConditionTrigger.cs" />
      <Compile Include="Assets\Scripts\CursorController.cs" />
      <Compile Include="Assets\Scripts\DragTrigger.cs" />
+     <Compile Include="Assets\Scripts\Extra\MaterialColorController.cs" />
      <Compile Include="Assets\Scripts\Initialize.cs" />
      <Compile Include="Assets\Scripts\MiniGame\BounceWall.cs" />
      <Compile Include="Assets\Scripts\MiniGame\CatBoard.cs" />
@@ -54,13 +55,17 @@
      <Compile Include="Assets\Scripts\MiniGame\MiniGameCatChaseMouse.cs" />
      <Compile Include="Assets\Scripts\MiniGame\MiniMouse.cs" />
      <Compile Include="Assets\Scripts\MiniGame\MouseHolePatch.cs" />
+     <Compile Include="Assets\Scripts\MiniGame\Teleporter.cs" />
      <Compile Include="Assets\Scripts\MouseCursorSetting.cs" />
      <Compile Include="Assets\Scripts\PlayerCamera.cs" />
+     <Compile Include="Assets\Scripts\PositionController.cs" />
      <Compile Include="Assets\Scripts\RigidBodyController.cs" />
      <Compile Include="Assets\Scripts\ScrollTrigger.cs" />
      <Compile Include="Assets\Scripts\SingleTon.cs" />
+     <Compile Include="Assets\Scripts\SizeController.cs" />
      <Compile Include="Assets\Scripts\SoundFx.cs" />
      <Compile Include="Assets\Scripts\SoundManager.cs" />
+     <Compile Include="Assets\Scripts\StageExtractor.cs" />
      <Compile Include="Assets\Scripts\Timer.cs" />
      <Compile Include="Assets\Scripts\TopViewPlayButton.cs" />
     <Reference Include="UnityEngine">

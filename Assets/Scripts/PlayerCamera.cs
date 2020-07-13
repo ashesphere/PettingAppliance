@@ -59,7 +59,7 @@ public class PlayerCamera : SingleTon<PlayerCamera>
             && time > 0f)
         {
             float d = Vector3.Distance(t.position, cameraPosition);
-            cameraPosition = d > 1f ?
+            cameraPosition = d > 0.01f ?
                 Vector3.Lerp(cameraPosition, t.position, Time.deltaTime * 2f * speed) : 
                 Vector3.MoveTowards(cameraPosition, t.position, Time.deltaTime * 2f* speed);
             float e = Vector3.Distance(t.eulerAngles, cameraEulerAngles);

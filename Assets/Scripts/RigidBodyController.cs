@@ -10,6 +10,7 @@ public class RigidBodyController : MonoBehaviour
     public Vector3 force;
     public Vector3 velocity;
     public Vector3 angularVelocity;
+    public bool autoCloseKinimatic;
 
     public void SetPosition()
     {
@@ -18,16 +19,19 @@ public class RigidBodyController : MonoBehaviour
 
     public void AddForceImpulse()
     {
+        if (autoCloseKinimatic) rgBody.isKinematic = false;
         rgBody.AddForce(force, ForceMode.Impulse);
     }
 
     public void SetAngularVelocity()
     {
+        if (autoCloseKinimatic) rgBody.isKinematic = false;
         rgBody.angularVelocity = angularVelocity;
     }
 
     public void SetVelocity()
     {
+        if (autoCloseKinimatic) rgBody.isKinematic = false;
         rgBody.velocity = velocity;
     }
 }

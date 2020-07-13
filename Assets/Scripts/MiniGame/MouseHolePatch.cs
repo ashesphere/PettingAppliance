@@ -11,7 +11,8 @@ public class MouseHolePatch : MonoBehaviour
         if (miniCat)
         {
             CreateMouse();
-            transform.DetachChildren();
+            foreach(Transform mt in transform)
+                mt.SetParent(transform.parent);
             gameObject.SetActive(false);
         }
     }

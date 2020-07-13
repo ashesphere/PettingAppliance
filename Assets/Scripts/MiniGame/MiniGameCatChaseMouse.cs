@@ -20,6 +20,7 @@ namespace MiniGame
         public Rect mouseArea;
         public Transform mouseRoot;
         public Transform patchRoot;
+        public GameObject exitButton;
 
         float autoRotateDirection = -1f;
         float angle = 0f;
@@ -46,6 +47,15 @@ namespace MiniGame
                 board.localPosition.y,
                 board.localPosition.z
             );
+
+            if (IsMouseAllKilled())
+                exitButton.SetActive(true);
+        }
+
+        void OnDisable()
+        {
+            if (cat)
+                cat.gameObject.SetActive(false);
         }
 
         void ShootCat()
@@ -71,8 +81,11 @@ namespace MiniGame
 
         public void Restart()
         {
+            cat.transform.SetParent(FindObjectOfType<CatBoard>().transform, true);
             cat.transform.position = catStartPos.position;
             cat.Stop();
+            foreach(MiniMouse m in FindObjectsOfType<MiniMouse>())
+                m.gameObject.SetActive(false);
             CreateMouse();
             CreatePatch();
         }
