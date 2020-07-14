@@ -677,7 +677,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &72659193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9293,7 +9293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1851279379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10730,7 +10730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxMoveTime: 2
-  speed: 1
+  speed: 2
   autoClose: 1
   nextAction:
     m_PersistentCalls:
