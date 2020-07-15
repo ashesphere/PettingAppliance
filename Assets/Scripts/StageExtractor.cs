@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class StageExtractor : MonoBehaviour
 {
@@ -14,10 +15,14 @@ public class StageExtractor : MonoBehaviour
     public float catSizeMin = 0.3f;
     public float catSizeMax = 1f;
     public float catSizeDelta = 0.3f;
+    public UnityEvent whenCatSizeReachMin;
+    public UnityEvent whenCatSizeLeaveMin;
     public AreaTrigger ventilatorArea;
     public Transform ventilatorRoot;
     public CameraMover cameraMoverToMiniGame;
     public GameObject miniGameRoot;
+    public UnityEvent afterCatSizeBackToOrigin;
+    public float timeDelay = 1f;
 
     float currentSize;
     AreaTrigger currentSizeController;
@@ -30,14 +35,16 @@ public class StageExtractor : MonoBehaviour
             currentSizeController = plusArea;
         });
         plusButton.action.AddListener(()=>{
-            AddCatSize();
+            if(currentSizeController == plusArea)
+                AddCatSize();
         });
         minusArea.onTargetDrop.AddListener(()=>{
             catRoot.transform.position = minusAreaRoot.position;
             currentSizeController = minusArea;
         });
         minusButton.action.AddListener(()=>{
-            AddCatSize();
+            if (currentSizeController == minusArea)
+                AddCatSize();
         });
         ventilatorArea.onTargetDrop.AddListener(()=>{
             if (currentSize <= catSizeMin)
@@ -47,7 +54,12 @@ public class StageExtractor : MonoBehaviour
                 miniGameRoot.SetActive(true);
             }
         });
-        yield break;
+        yield return new WaitUntil(()=> miniGameRoot.activeSelf);
+        yield return new WaitUntil(()=>!miniGameRoot.activeSelf);
+        yield return new WaitUntil(()=>currentSize >= catSizeMax);
+        yield return new WaitForSeconds(timeDelay);
+        if (afterCatSizeBackToOrigin != null)
+            afterCatSizeBackToOrigin.Invoke();
     }
 
     void AddCatSize()
@@ -60,5 +72,9 @@ public class StageExtractor : MonoBehaviour
         catRoot.transform.localScale = currentSize * Vector3.one;
 
         ventilatorArea.gameObject.SetActive(currentSize <= catSizeMin);
+        if (currentSize <= catSizeMin)
+            whenCatSizeReachMin.Invoke();
+        else
+            whenCatSizeLeaveMin.Invoke();
     }
 }

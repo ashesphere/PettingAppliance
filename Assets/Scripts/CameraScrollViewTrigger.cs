@@ -22,7 +22,7 @@ public class CameraScrollViewTrigger : MonoBehaviour
         originalPQ.q = cam.rotation;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         var cam = Camera.main.transform;
         if (!cam) return;

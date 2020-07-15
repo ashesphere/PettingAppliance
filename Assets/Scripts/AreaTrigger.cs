@@ -13,6 +13,7 @@ public class AreaTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if (!enabled) return;
         if (target == other)
             isTargetInArea = true;
         var dt = other.GetComponent<DragTrigger>();
@@ -24,6 +25,7 @@ public class AreaTrigger : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+        if (!enabled) return;
         if (target == other)
             isTargetInArea = false;
             

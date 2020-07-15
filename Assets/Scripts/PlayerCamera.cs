@@ -20,6 +20,10 @@ public class PlayerCamera : SingleTon<PlayerCamera>
         get => Camera.main.transform.eulerAngles;
         set => Camera.main.transform.eulerAngles = value;
     }
+    Quaternion cameraRotation{
+        get => Camera.main.transform.rotation;
+        set => Camera.main.transform.rotation = value;
+    }
 
     void Update()
     {
@@ -59,13 +63,19 @@ public class PlayerCamera : SingleTon<PlayerCamera>
             && time > 0f)
         {
             float d = Vector3.Distance(t.position, cameraPosition);
-            cameraPosition = d > 0.01f ?
+            cameraPosition = d > 0.001f ?
                 Vector3.Lerp(cameraPosition, t.position, Time.deltaTime * 2f * speed) : 
                 Vector3.MoveTowards(cameraPosition, t.position, Time.deltaTime * 2f* speed);
             float e = Vector3.Distance(t.eulerAngles, cameraEulerAngles);
+            /*
             cameraEulerAngles = d > 1f ?
                 Vector3.Lerp(cameraEulerAngles, t.eulerAngles, Time.deltaTime * 2f* speed) : 
-                Vector3.MoveTowards(cameraEulerAngles, t.eulerAngles, Time.deltaTime * 20f * speed);
+                Vector3.Lerp(cameraEulerAngles, t.eulerAngles, Time.deltaTime * 2f* speed);
+            */
+            cameraRotation = e > 0.001f ?
+                Quaternion.Lerp(cameraRotation, t.rotation, Time.deltaTime * 2f * speed):
+                Quaternion.Lerp(cameraRotation, t.rotation, Time.deltaTime * 2f * speed);
+                //Vector3.MoveTowards(cameraEulerAngles, t.eulerAngles, Time.deltaTime * 20f * speed);
             time -= Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }

@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\MiniGame\MouseHolePatch.cs" />
      <Compile Include="Assets\Scripts\MiniGame\Teleporter.cs" />
      <Compile Include="Assets\Scripts\MouseCursorSetting.cs" />
+     <Compile Include="Assets\Scripts\MouseEnterTrigger.cs" />
      <Compile Include="Assets\Scripts\PlayerCamera.cs" />
      <Compile Include="Assets\Scripts\PositionController.cs" />
      <Compile Include="Assets\Scripts\RigidBodyController.cs" />
@@ -634,6 +635,9 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
         <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+        <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
