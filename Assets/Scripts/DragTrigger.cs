@@ -80,6 +80,11 @@ public class DragTrigger : BasicTrigger
         transform.localPosition = originalPosition;
     }
 
+    public void SetOriginalPosition(Transform transform)
+    {
+        originalPosition = transform.position;
+    }
+
     public void SetAreaTrigger(AreaTrigger a)
     {
         area = a;

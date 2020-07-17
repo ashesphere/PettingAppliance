@@ -20,6 +20,12 @@ public class MiniCat : MonoBehaviour
         //transform.up = v;
         isStopped = false;
         transform.SetParent(null);
+        EnableGravity(true);
+    }
+
+    public void EnableGravity(bool e)
+    {
+        GetComponent<ConstantForce>().enabled = e;
     }
 
     void OnTriggerEnter(Collider other)

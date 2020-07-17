@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\StageExtractor.cs" />
      <Compile Include="Assets\Scripts\Timer.cs" />
      <Compile Include="Assets\Scripts\TopViewPlayButton.cs" />
+     <Compile Include="Assets\Scripts\TransformController.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.0b12/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -624,6 +625,9 @@
     <Reference Include="Unity.Rider.Editor">
         <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+        <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
         <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
@@ -635,9 +639,6 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
         <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-        <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

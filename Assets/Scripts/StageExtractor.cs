@@ -6,12 +6,12 @@ using UnityEngine.Events;
 public class StageExtractor : MonoBehaviour
 {
     public GameObject catRoot;
-    public AreaTrigger plusArea;
-    public Transform plusAreaRoot;
+    //public AreaTrigger plusArea;
+    //public Transform plusAreaRoot;
+    public AreaTrigger catSizeArea;
+    public Transform catSizeAreaRoot;
     public ClickTrigger plusButton;
-    public AreaTrigger minusArea;
     public ClickTrigger minusButton;
-    public Transform minusAreaRoot;
     public float catSizeMin = 0.3f;
     public float catSizeMax = 1f;
     public float catSizeDelta = 0.3f;
@@ -25,27 +25,17 @@ public class StageExtractor : MonoBehaviour
     public float timeDelay = 1f;
 
     float currentSize;
-    AreaTrigger currentSizeController;
+    int canChangeCatSize;
 
     IEnumerator Start()
     {
         currentSize = 1f;
+        /*
         plusArea.onTargetDrop.AddListener(()=>{
             catRoot.transform.position = plusAreaRoot.position;
             currentSizeController = plusArea;
         });
-        plusButton.action.AddListener(()=>{
-            if(currentSizeController == plusArea)
-                AddCatSize();
-        });
-        minusArea.onTargetDrop.AddListener(()=>{
-            catRoot.transform.position = minusAreaRoot.position;
-            currentSizeController = minusArea;
-        });
-        minusButton.action.AddListener(()=>{
-            if (currentSizeController == minusArea)
-                AddCatSize();
-        });
+        */
         ventilatorArea.onTargetDrop.AddListener(()=>{
             if (currentSize <= catSizeMin)
             {
@@ -62,12 +52,19 @@ public class StageExtractor : MonoBehaviour
             afterCatSizeBackToOrigin.Invoke();
     }
 
-    void AddCatSize()
+    public void SetCatSizeEnable(int s)
     {
-        if (currentSizeController == plusArea)
-            currentSize += catSizeDelta;
-        if (currentSizeController == minusArea)
-            currentSize -= catSizeDelta;
+        canChangeCatSize = s;
+    }
+
+    public void AddCatSize(float d)
+    {
+        if (Mathf.Sign(d) != Mathf.Sign(canChangeCatSize))
+            return;
+        //if (currentSizeController == plusArea)
+            currentSize += catSizeDelta * d;
+        //if (currentSizeController == catSizeArea)
+        //    currentSize -= catSizeDelta;
         currentSize = Mathf.Clamp(currentSize, catSizeMin, catSizeMax);
         catRoot.transform.localScale = currentSize * Vector3.one;
 

@@ -7,13 +7,32 @@ namespace MiniGame
     public class Teleporter : MonoBehaviour
     {
         public Teleporter pair;
+        
+        bool isEnter;
 
         void OnTriggerEnter(Collider other)
         {
             var miniCat = other.GetComponent<MiniCat>();
             if (miniCat)
             {
-                Teleport(miniCat);
+                if (!isEnter)
+                {
+                    isEnter = true;
+                    pair.isEnter = true;
+                    Teleport(miniCat);
+                }
+            }
+        }
+
+        void OnTriggerExit(Collider other)
+        {
+            var miniCat = other.GetComponent<MiniCat>();
+            if (miniCat)
+            {
+                if (isEnter)
+                {
+                    isEnter = false;
+                }
             }
         }
 
