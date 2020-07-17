@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MouseHolePatch : MonoBehaviour
 {
-
+public AudioClip AO;
+public AudioSource source;
     void OnTriggerEnter(Collider other)
     {
         var miniCat = other.GetComponent<MiniCat>();
@@ -14,6 +15,7 @@ public class MouseHolePatch : MonoBehaviour
             foreach(Transform mt in transform)
                 mt.SetParent(transform.parent);
             gameObject.SetActive(false);
+            source.PlayOneShot(AO,1F);
         }
     }
 
