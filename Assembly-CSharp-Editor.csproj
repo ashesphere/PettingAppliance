@@ -592,6 +592,12 @@
     <Reference Include="Unity.VSCode.Editor">
         <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
+<<<<<<< Updated upstream
+=======
+    <Reference Include="Unity.Formats.Alembic.Runtime">
+        <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/Unity.Formats.Alembic.Runtime.dll</HintPath>
+    </Reference>
+>>>>>>> Stashed changes
     <Reference Include="Unity.TextMeshPro.Editor">
         <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -604,9 +610,21 @@
     <Reference Include="Unity.Rider.Editor">
         <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
+<<<<<<< Updated upstream
     <Reference Include="Unity.VisualStudio.Editor">
         <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
+=======
+    <Reference Include="Unity.2D.Sprite.Editor">
+        <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualStudio.Editor">
+        <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Formats.Alembic.Editor">
+        <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/Unity.Formats.Alembic.Editor.dll</HintPath>
+    </Reference>
+>>>>>>> Stashed changes
     <Reference Include="Unity.TextMeshPro">
         <HintPath>E:/Projects/PettingAppliance/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
