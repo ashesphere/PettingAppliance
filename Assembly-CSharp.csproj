@@ -47,6 +47,7 @@
      <Compile Include="Assets\Scripts\CursorController.cs" />
      <Compile Include="Assets\Scripts\DragTrigger.cs" />
      <Compile Include="Assets\Scripts\Extra\MaterialColorController.cs" />
+     <Compile Include="Assets\Scripts\FondleTrigger.cs" />
      <Compile Include="Assets\Scripts\Initialize.cs" />
      <Compile Include="Assets\Scripts\MiniGame\BounceWall.cs" />
      <Compile Include="Assets\Scripts\MiniGame\CatBoard.cs" />
