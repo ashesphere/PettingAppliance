@@ -69,7 +69,7 @@ namespace MiniGame
             foreach(Transform t in mouseRoot) t.gameObject.SetActive(true);
         }
 
-        void CreatePatch()
+        public void CreatePatch()
         {
             foreach(Transform t in patchRoot) t.gameObject.SetActive(true);
         }
