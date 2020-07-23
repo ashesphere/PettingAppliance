@@ -7,6 +7,7 @@ public class PlayerCamera : SingleTon<PlayerCamera>
     public float minFov = 20f;
     public float maxFov = 70f;
     public float sensitivity = 20f;
+    public GameObject collisionDetectionBanner;
 
     float originalFov;
     bool isScrollOpened;
@@ -88,4 +89,9 @@ public class PlayerCamera : SingleTon<PlayerCamera>
 
     public bool IsMin { get => Camera.main.fieldOfView <= minFov; }
     public bool IsMax { get => Camera.main.fieldOfView >= maxFov; }
+
+    public void BanMouseCollisionDetect(bool o)
+    {
+        collisionDetectionBanner.SetActive(o);
+    }
 }

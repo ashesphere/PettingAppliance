@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MiniCat : MonoBehaviour
 {
     public bool isStopped = true;
+    public UnityEvent onCatchMice;
 
     Rigidbody rgbody { get => GetComponent<Rigidbody>(); }
 
@@ -34,6 +36,8 @@ public class MiniCat : MonoBehaviour
         if (miniMice)
         {
             miniMice.Kill();
+            if (onCatchMice != null)
+                onCatchMice.Invoke();
         }
     }
 }

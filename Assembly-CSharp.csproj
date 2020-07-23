@@ -71,6 +71,7 @@
      <Compile Include="Assets\Scripts\Timer.cs" />
      <Compile Include="Assets\Scripts\TopViewPlayButton.cs" />
      <Compile Include="Assets\Scripts\TransformController.cs" />
+     <Compile Include="Assets\Scripts\UIGeneral.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.0b12/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

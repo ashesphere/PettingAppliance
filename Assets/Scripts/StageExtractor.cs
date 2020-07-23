@@ -8,15 +8,17 @@ public class StageExtractor : MonoBehaviour
     public GameObject catRoot;
     //public AreaTrigger plusArea;
     //public Transform plusAreaRoot;
-    public AreaTrigger catSizeArea;
-    public Transform catSizeAreaRoot;
+    /*
+    public AreaTrigger plusArea;
+    public AreaTrigger minusArea;
     public ClickTrigger plusButton;
     public ClickTrigger minusButton;
+    */
     public float catSizeMin = 0.3f;
     public float catSizeMax = 1f;
     public float catSizeDelta = 0.3f;
-    public UnityEvent whenCatSizeReachMin;
-    public UnityEvent whenCatSizeLeaveMin;
+    public float catSizeChangeTime = 1f;
+    public UnityEvent onCatSizeChange;
     public AreaTrigger ventilatorArea;
     public Transform ventilatorRoot;
     public CameraMover cameraMoverToMiniGame;
@@ -61,17 +63,27 @@ public class StageExtractor : MonoBehaviour
     {
         if (Mathf.Sign(d) != Mathf.Sign(canChangeCatSize))
             return;
-        //if (currentSizeController == plusArea)
-            currentSize += catSizeDelta * d;
-        //if (currentSizeController == catSizeArea)
-        //    currentSize -= catSizeDelta;
+        currentSize += catSizeDelta * d;
         currentSize = Mathf.Clamp(currentSize, catSizeMin, catSizeMax);
-        catRoot.transform.localScale = currentSize * Vector3.one;
+        //catRoot.transform.localScale = currentSize * Vector3.one;
+        StartCoroutine(AddCatSizeRoutine(currentSize * Vector3.one));
 
         ventilatorArea.gameObject.SetActive(currentSize <= catSizeMin);
-        if (currentSize <= catSizeMin)
-            whenCatSizeReachMin.Invoke();
-        else
-            whenCatSizeLeaveMin.Invoke();
+
+        if (onCatSizeChange != null)
+            onCatSizeChange.Invoke();
     }
+
+    IEnumerator AddCatSizeRoutine(Vector3 s)
+    {
+        PlayerCamera.current.BanMouseCollisionDetect(true);
+        for(float time = catSizeChangeTime ; time > 0 ; time -= Time.fixedDeltaTime)
+        {
+            yield return new WaitForFixedUpdate();
+            catRoot.transform.localScale = Vector3.Lerp(catRoot.transform.localScale, s, Time.fixedDeltaTime * 5f);
+        }
+        catRoot.transform.localScale = s;
+        PlayerCamera.current.BanMouseCollisionDetect(false);
+    }
+
 }

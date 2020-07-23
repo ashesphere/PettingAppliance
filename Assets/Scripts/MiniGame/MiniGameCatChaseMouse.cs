@@ -8,6 +8,7 @@ namespace MiniGame
     {
         public bool gameStart;
         public string horizontal = "Horizontal";
+        public string vertical = "Vertical";
         public float rotateSpeed = 60f;
         public Vector2 angleRange = new Vector2(-60, 60);
         public Transform cursorArrow;
@@ -22,16 +23,21 @@ namespace MiniGame
         public Transform patchRoot;
         public GameObject exitButton;
 
-        float autoRotateDirection = -1f;
+        //float autoRotateDirection = -1f;
         float angle = 0f;
 
         void Update()
         {
             if (!gameStart) return;
             
+            /*
             angle += autoRotateDirection * Time.deltaTime * rotateSpeed;
             if (angle > angleRange.y) autoRotateDirection = -1f;
             if (angle < angleRange.x) autoRotateDirection = 1f;
+            */
+            var dv = Input.GetAxisRaw(vertical);
+            angle += dv * Time.deltaTime * rotateSpeed;
+            angle = Mathf.Clamp(angle, angleRange.x, angleRange.y);
 
             var e = cursorArrow.localEulerAngles;
             e.z = angle;
@@ -84,8 +90,25 @@ namespace MiniGame
             cat.transform.SetParent(FindObjectOfType<CatBoard>().transform, true);
             cat.transform.position = catStartPos.position;
             cat.Stop();
-            foreach(MiniMouse m in FindObjectsOfType<MiniMouse>())
-                m.gameObject.SetActive(false);
+
+            var mouse = FindObjectsOfType<MiniMouse>();
+            var patches = FindObjectsOfType<MouseHolePatch>();
+            if (mouse.Length >= 3)
+            {
+                patches[Random.Range(0, patches.Length)].CreateMouse();
+            } else
+            {
+                foreach(MouseHolePatch p in patches)
+                    p.CreateMouse();
+            }
+
+/*
+            foreach(MiniMouse m in mouse)
+           {
+                if (m.transform.parent == mouseRoot) m.gameObject.SetActive(false);
+                else Destroy(m.gameObject);
+            }
+*/
             CreateMouse();
             CreatePatch();
         }
