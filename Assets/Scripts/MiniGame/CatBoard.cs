@@ -11,6 +11,7 @@ public class CatBoard : MonoBehaviour
         {
             miniCat.Stop();
             miniCat.transform.SetParent(transform);
+            miniCat.transform.localPosition=new Vector3(miniCat.transform.localPosition.x,2.8f,miniCat.transform.localPosition.z);
             miniCat.EnableGravity(false);
         }
     }

@@ -28,7 +28,7 @@ public class DragTrigger : BasicTrigger
     void Start()
     {
         originalPosition = transform.localPosition;
-        isKinimatic = rgbody.isKinematic;
+        if(rgbody)isKinimatic = rgbody.isKinematic;
     }
 
     void OnMouseDown()
@@ -48,7 +48,11 @@ public class DragTrigger : BasicTrigger
 
         var camera = Camera.main;
         var ray = camera.ScreenPointToRay(Input.mousePosition);
-        position = ray.GetPoint(startDistance);
+        
+       RaycastHit raycastHit;
+       Physics.Raycast(ray, out raycastHit,2000,0x01<<9 |0x01<<8 |0x01<<0);
+       
+        position = raycastHit.point;//ray.GetPoint(startDistance);
         
         if (changeCursor)
             CursorController.current.SetCursor(CursorType.Drag2);
