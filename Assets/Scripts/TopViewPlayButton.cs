@@ -23,4 +23,5 @@ public class TopViewPlayButton : SingleTon<TopViewPlayButton>
     {
         target.gameObject.SetActive(o);
     }
+    
 }
