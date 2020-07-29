@@ -19,4 +19,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3cced89a98aa387498fbbaf1bfc5cee8, type: 3}
   - {fileID: 21300000, guid: 552b05fdf6f6bf446b2026f2d90054f0, type: 3}
   - {fileID: 21300000, guid: a2edd1c3c7a0dd8459998e296a7aa64d, type: 3}
+  - {fileID: 21300000, guid: 482f85beac715084d882edf815c8fa23, type: 3}
   defaultCursor: {fileID: 21300000, guid: 22cde322de489164b8d38210e0ba9ff8, type: 3}

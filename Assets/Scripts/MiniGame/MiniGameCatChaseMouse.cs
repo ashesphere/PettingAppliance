@@ -43,7 +43,7 @@ namespace MiniGame
             e.z = angle;
             cursorArrow.localEulerAngles = e;
 
-            if (Input.GetMouseButtonDown(0) && cat.isStopped)
+            if ((Input.GetMouseButtonDown(0)||Input.GetKeyDown(KeyCode.Space)) && cat.isStopped)
                 ShootCat();
             
             var dh = Input.GetAxisRaw(horizontal) * Time.deltaTime * moveBoardSpeed;

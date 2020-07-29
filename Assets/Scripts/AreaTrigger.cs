@@ -16,10 +16,15 @@ public class AreaTrigger : MonoBehaviour
         if (!enabled) return;
         if (target == other)
             isTargetInArea = true;
-        var dt = other.GetComponent<DragTrigger>();
-        if (dt)
+        var dt1 = other.GetComponent<DragTrigger>();
+        var dt2 = other.GetComponent<DragTriggerNew>();
+        if (dt1)
         {
-            dt.SetAreaTrigger(this);
+            dt1.SetAreaTrigger(this);
+        }
+        if (dt2)
+        {
+            dt2.SetAreaTrigger(this);
         }
     }
 

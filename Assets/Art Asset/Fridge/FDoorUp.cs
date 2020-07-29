@@ -8,7 +8,7 @@ public class FDoorUp : MonoBehaviour
     void Start()
     {
 
-Physics.queriesHitTriggers=true;
+        Physics.queriesHitTriggers = true;
     }
 
     void Update()
@@ -18,16 +18,21 @@ Physics.queriesHitTriggers=true;
 
     public void Init()
     {
-PlayCloseAni();
+        PlayCloseAni();
     }
 
-    public void Init2(){
-        
+    public void Init2()
+    {
+
         PlayOpenAni();
     }
 
     bool isOpen = false;
- public    void ChangeAnimation()
+    public bool GetIsOpen()
+    {
+        return isOpen;
+    }
+    public void ChangeAnimation()
     {
         if (!isOpen)
         {
@@ -38,20 +43,21 @@ PlayCloseAni();
         {
 
             PlayCloseAni();
-                    if(FMilk.GetEventNum()==2/*&&FCat.GetCatHappy()*/){
+            if (FMilk.GetEventNum() == 2/*&&FCat.GetCatHappy()*/&&!d2.GetIsOpen())
+            {
 
-                    //game end
-                    gameend.SetActive(true);
-                }
+                //game end
+                gameend.SetActive(true);
+            }
         }
         isOpen = !isOpen;
     }
-public Animator animator;
+    public Animator animator;
     void PlayOpenAni()
     {
 
 
-animator.Play("Open");
+        animator.Play("Open");
     }
 
     void PlayCloseAni()
@@ -61,4 +67,6 @@ animator.Play("Open");
     }
 
     public GameObject gameend;
+
+    public FDoorDown d2;
 }

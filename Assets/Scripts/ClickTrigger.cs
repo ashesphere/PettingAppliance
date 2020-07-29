@@ -16,18 +16,28 @@ public class ClickTrigger : MonoBehaviour
         
     }
 
-    void OnMouseDown()
+    void OnMouseUp()
     {
         if (!enabled) return;
         if (action != null) action.Invoke();
-        if (autoClose) gameObject.SetActive(false);
+        if (autoClose) {
+            if (changeCursor && CursorController.current)
+                CursorController.current.SetCursor(CursorType.None);
+            gameObject.SetActive(false);
+        }
+    }
+    void OnMouseDown()
+    {
+        if (!enabled) return;
+        if (changeCursor && CursorController.current)
+            CursorController.current.SetCursor(CursorType.Click2);
     }
 
     void OnMouseEnter()
     {
         if (!enabled) return;
         if (changeCursor && CursorController.current)
-            CursorController.current.SetCursor(CursorType.Click2);
+            CursorController.current.SetCursor(CursorType.Click1);
     }
 
     void OnMouseExit()

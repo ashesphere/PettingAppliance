@@ -27,7 +27,10 @@ public class FDoorDown : MonoBehaviour
     }
 
     public static bool isOpen = false;
-
+    public bool GetIsOpen()
+    {
+        return isOpen;
+    }
     public void ChangeAnimation()
     {
         if (!isOpen)
@@ -48,7 +51,7 @@ public class FDoorDown : MonoBehaviour
             else
             {
                 PlayCloseAni(); isOpen = !isOpen;
-                if (FMilk.GetEventNum() == 2/* && FCat.GetCatHappy()*/)
+                if (FMilk.GetEventNum() == 2/* && FCat.GetCatHappy()*/&&!d1.GetIsOpen())
                 {
 
                     //game end
@@ -76,4 +79,6 @@ public class FDoorDown : MonoBehaviour
     }
 
     public GameObject gameend;
+
+    public FDoorUp d1;
 }

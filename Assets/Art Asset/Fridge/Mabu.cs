@@ -9,12 +9,13 @@ public class Mabu : MonoBehaviour
     {
         Init();
     }
-RaycastHit rh;
+    RaycastHit rh;
     void Update()
-    { Ray ray=Camera.main.ScreenPointToRay(Input.mousePosition);
+    {
+        Ray ray=Camera.main.ScreenPointToRay(Input.mousePosition);
         //Ray ray=new Ray(Camera.main.transform.position,Input.mousePosition);
         Physics.Raycast(ray, out rh,1000);
-        Debug.Log(rh.collider.tag);
+        //Debug.Log(rh.collider.tag);
     }
 
     bool canUse=false;

@@ -61,5 +61,5 @@ public class CursorController : SingleTon<CursorController>
 
 public enum CursorType
 {
-    Click1, Click2, Drag1, Drag2, Scroll, None
+    Click1, Click2, Drag1, Drag2, Scroll, Hand, None
 }

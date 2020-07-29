@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Mabu
   - Yugan
+  - WallLeft
+  - WallRight
   layers:
   - Default
   - TransparentFX

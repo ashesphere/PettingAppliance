@@ -8,6 +8,8 @@ public class MouseHolePatch : MonoBehaviour
     public GameObject mousePrefab;
     public float createMouseDelay = 1f;
     public UnityEvent onCreateMouse;
+    public float mouseSpawnLeftRange = -2.5f;
+    public float mouseSpawnRightRange = 2.5f;
 
 
     void OnTriggerEnter(Collider other)
@@ -27,6 +29,7 @@ public class MouseHolePatch : MonoBehaviour
         //foreach (Transform t in transform) t.gameObject.SetActive(true);
         var g = Instantiate(mousePrefab, transform);
         g.transform.position = transform.position;
+        
         if (onCreateMouse != null)
             onCreateMouse.Invoke();
     }
