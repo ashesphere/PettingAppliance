@@ -30,11 +30,8 @@ namespace MiniGame
         {
             if (!gameStart) return;
             
-            /*
-            angle += autoRotateDirection * Time.deltaTime * rotateSpeed;
-            if (angle > angleRange.y) autoRotateDirection = -1f;
-            if (angle < angleRange.x) autoRotateDirection = 1f;
-            */
+
+            /* Keyboard controls the direction
             var dv = Input.GetAxisRaw(vertical);
             angle += dv * Time.deltaTime * rotateSpeed;
             angle = Mathf.Clamp(angle, angleRange.x, angleRange.y);
@@ -42,6 +39,13 @@ namespace MiniGame
             var e = cursorArrow.localEulerAngles;
             e.z = angle;
             cursorArrow.localEulerAngles = e;
+            */
+
+            //Mouse controls the direction
+            var mPosRaw = Input.mousePosition;
+            var mPos = Camera.main.ScreenPointToRay(mPosRaw).origin;
+            mPos.z = cursorArrow.position.z;
+            cursorArrow.up = mPos - cursorArrow.position;
 
             if ((Input.GetMouseButtonDown(0)||Input.GetKeyDown(KeyCode.Space)) && cat.isStopped)
                 ShootCat();

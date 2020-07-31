@@ -9,6 +9,9 @@ public class FondleTrigger : MonoBehaviour
     public bool autoClose = true;
     public bool changeCursor = true;
     public UnityEvent action;
+    public GameObject effect;
+
+
     bool wasMouseDownOnThis = false;
     bool isMouseOnThis = true;
     [SerializeField]float currentTime = 0f;
@@ -33,6 +36,12 @@ public class FondleTrigger : MonoBehaviour
             if (autoClose)
                 gameObject.SetActive(false);
         }
+    }
+
+    void Update()
+    {
+        if (effect)
+            effect.SetActive(wasMouseDownOnThis);
     }
     
     void LateUpdate()

@@ -8,6 +8,7 @@ public class ClickTrigger : MonoBehaviour
     public bool autoClose = true;
     public bool changeCursor = true;
     public UnityEvent action;
+    public UnityEvent onMouseDown;
 
     bool isBanned { get => !enabled; }
 
@@ -29,6 +30,7 @@ public class ClickTrigger : MonoBehaviour
     void OnMouseDown()
     {
         if (!enabled) return;
+        if (onMouseDown != null)onMouseDown.Invoke();
         if (changeCursor && CursorController.current)
             CursorController.current.SetCursor(CursorType.Click2);
     }
